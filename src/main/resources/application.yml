@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /employee-api
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: employee-management-service
+  jackson:
+    date-format: dd-MM-yyyy
+    time-zone: America/Mexico_City
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    com.employee.service: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg - Headers: %X{headers}%n"
